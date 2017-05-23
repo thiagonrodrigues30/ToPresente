@@ -23,7 +23,7 @@
         <div class="row"> 
             <div class="col-md-10 col-md-offset-1" style="border: 1 solid; background-color: black">
                 <center> 
-                    <h2 style="color: white">Stupid Nigger</h2>
+                    <h2 style="color: white">Example</h2>
                 </center>
             </div>
         </div>

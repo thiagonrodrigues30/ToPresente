@@ -22,27 +22,53 @@
     
     <!-- Personal css file -->
     <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/navbar-style.css" />
 
 
 <body>
-
-
-<div class="container-fluid">
-    <div  class="col-md-10 col-md-offset-1">
-        <div class="row">
-           
-            <div class="col-xs-4"> 
-                <h1>ToPresente</h1>
+<!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <span class="navbar-brand">To Presente</span>
             </div>
-            <div class="col-xs-4">
-                <h4>Ola,Fulano</h4>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                        <a href="paginaPrincipal.php">
+                            <i class="fa fa-sign-in"></i><span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                            Início
+                        </a>
+                    </li>
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active">
+                        <a href="#">
+                            <i class="fa fa-sign-in"></i><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                            Fulano
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../index.php?logout">
+                            <i class="fa fa-sign-in"></i><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+                            Sair
+                        </a>
+                    </li>
+                </ul>
             </div>
-            <div class="col-xs-4">
-                <button class="btn btn-primary button">Logout</button>
-            </div> 
-            </br>
-            </br> 
+            <!--/.nav-collapse -->
         </div>
+    </div>
+
+<div class="container-fluid" style="margin-top: 50px">
+    <div  class="col-md-10 col-md-offset-1">
         <h2>CK123-Arquitetura de Computadores</h2>
         <HR width="100%" align="center" class="hr" noshade/>
         </br>
@@ -136,15 +162,32 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                    <h4 class="modal-title" id="myModalLabel">Nova Aula</h4>
                   </div>
-                  <div class="modal-body">
-                    ...
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                  </div>
+                  <form method="post" action="index.php" name="loginform">
+                        <div class="modal-body">
+                        
+
+                            <div class="form-group"><br>
+                                <label for="data">Data:</label>
+                                <input id="data" class="login_input form-control" type="date" name="user_name" required placeholder="Email" style="width: 100%;" />
+                            </div>
+
+                            <div class="form-group"><br>
+                                <label for="hora-inicio">Hora Início:</label>
+                                <input id="hora-inicio" class="login_input form-control" type="time" name="user_name" required placeholder="Email" style="width: 100%;" />
+                            </div>
+
+                            <div class="form-group"><br>
+                                <label for="hora-fim">Hora Fim:</label>
+                                <input id="hora-fim" class="login_input form-control" type="time" name="user_name" required placeholder="Email" style="width: 100%;" />
+                            </div>
+                        </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                        <input type="submit" class="btn btn-primary"  name="login" value="Criar Aula"/>
+                      </div>
+                  </form>
                 </div>
               </div>
             </div>

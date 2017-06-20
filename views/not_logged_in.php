@@ -39,6 +39,7 @@ if (isset($login)) {
     
     <!-- Personal css file -->
     <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" href="../css/navbar-style.css" />
 
 
 
@@ -60,6 +61,7 @@ if (isset($login)) {
     }
 
 </script>
+
 
 
 <div class="row">

@@ -14,13 +14,13 @@
     
     <!-- Personal css file -->
     <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/navbar-style.css" />
 
 
 </head>
 <body>
-    
     <!-- Corpo do Site -->
-    <div class="container-fluid"">
+    <div class="container-fluid">
         <div class="row"> 
             <div class="col-md-10 col-md-offset-1"> 
                     <h1 style="color: black">

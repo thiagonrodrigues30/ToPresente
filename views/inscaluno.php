@@ -14,10 +14,11 @@
     
     <!-- Personal css file -->
     <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/navbar-style.css" />
+
 
 </head>
 <body>
-    
     <!-- Corpo do Site -->
     <div class="container-fluid">
         <div class="row"> 
@@ -53,7 +54,7 @@
             <input class="input" width="200px" type="text" name="Senha" required>
             </br>
             <center>
-            <button class="btn btn-primary button" >Butão</button>
+            <button class="btn btn-primary button" >Registrar</button>
             </center>
             </div>
         

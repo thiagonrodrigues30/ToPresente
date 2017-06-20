@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>To Presente</title>
+    <!-- Jquery -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+    
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -14,27 +20,54 @@
     
     <!-- Personal css file -->
     <link rel="stylesheet" href="../css/style.css" />
-
+    <link rel="stylesheet" href="../css/navbar-style.css" />
 
 <body>
+<!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <span class="navbar-brand">To Presente</span>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                        <a href="paginaPrincipal.php">
+                            <i class="fa fa-sign-in"></i><span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                            Início
+                        </a>
+                    </li>
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active">
+                        <a href="#">
+                            <i class="fa fa-sign-in"></i><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                            Fulano
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../index.php?logout">
+                            <i class="fa fa-sign-in"></i><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+                            Sair
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
 
-
-<div class="container-fluid">
+<div class="container-fluid" style="margin-top: 50px">
     <div  class="col-md-10 col-md-offset-1">
         <div class="row">
-           
-            <div class="col-xs-4"> 
-                <h1>ToPresente</h1>
-            </div>
-            <div class="col-xs-4">
-                <h4>Ola,Fulano</h4>
-            </div>
-            <div class="col-xs-4">
-                <button class="btn btn-primary button">Logout</button>
-            </div> 
-            </br>
-            </br> 
-            <div class="col-xs-6">
+           <div class="col-xs-6">
                 <center>
                 <button class="btn btn-success button">+Turma</button>
                 </center>

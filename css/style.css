@@ -4,3 +4,107 @@
 	qualquercoisa: blablabla;
 }
 */
+.hr{
+    color:black;
+    background-color: black;
+    height: 2px;
+}
+.input{
+    width:100%;
+    height:50px;    
+    border-radius:8px;
+    font-size: 17px;
+}
+
+.button{
+    /*background-color: #008CBA;
+    border:none;
+    color:white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 8px;
+    margin-right: 50%;
+    margin-left:46%;
+    */
+    font-size: 16px;
+    padding: 12px 28px;
+    margin-top: 5%;
+    margin-bottom:5%;     
+     
+}
+
+.link-turma{
+    font-size:15px;
+    margin-top:5%;
+    margin-bottom:5%; 
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+table {
+    border-collapse: collapse;
+    font-size: 18px;
+    width: 100%;
+    max-height: 350px;
+    display: block;
+    overflow-x: auto;  /* Hide the horizontal scroll */
+}
+
+thead {
+    overflow: hidden;
+}
+
+thead th {
+    height: 30px;
+
+    /*text-align: left;*/
+}
+
+th, td {
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: left;
+}
+tr:hover {
+    background-color: rgb(0,75,255);
+    color: white; 
+}
+
+
+tbody {
+    height: 100px;       /* Just for the demo          */
+    overflow-y: auto;    /* Trigger vertical scroll    */
+    
+}
+
+.link-info {
+    font-size: 18px;
+}
+
+.btn-nova-aula {
+    font-size: 18px;
+}
+
+.login-box {
+    background-color: #90EE90;
+    /*border: 1px solid black;*/
+}
+
+.login-tab-aluno {
+    /*border: 1px solid black;*/
+    margin-top: 200px;
+    font-size: 16px;
+    border-radius: 10px 10px 0px 0px;
+    background-color: #7FFFD4;
+}
+
+.login-tab-prof {
+    /*border: 1px solid black;*/
+    margin-top: 200px;
+    font-size: 16px;
+    border-radius: 10px 10px 0px 0px;
+    background-color: #90EE90;
+}

@@ -38,8 +38,8 @@ if (isset($login)) {
 
     
     <!-- Personal css file -->
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
-    <link rel="stylesheet" href="../css/navbar-style.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="css/navbar-style.css" />
 
 
 
@@ -58,6 +58,8 @@ if (isset($login)) {
         {
             $("#login-box").css("background-color","#90EE90");
         }
+
+        $("#user-type").val(op);
     }
 
 </script>
@@ -87,6 +89,8 @@ if (isset($login)) {
 
             <!-- login form box -->
             <form method="post" action="index.php" name="loginform">
+            
+                <input id="user-type" type="hidden" value="1">
 
                 <div class="col-md-12"><br>
                     <input id="login_input_username" class="login_input form-control" type="text" name="user_name" required placeholder="Email" style="width: 100%;" /><br>

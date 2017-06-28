@@ -68,7 +68,8 @@ class Login
                 // database query, getting all the info of the selected user (allows login via email address in the
                 // username field)
                 $sql = "SELECT *
-                        FROM users WHERE user_name = '" . $user_email . "' OR user_email = '" . $user_email . "';";
+                        FROM users WHERE ( user_name = '" . $user_email . "' OR user_email = '" . $user_email . "' ) AND user_type = 
+                        ". $_POST['user_type'] ." ;";
                        // WHERE user_email = " . $user_email . " ;"; //' AND user_type = '" . $_POST['user_type'] . "'  ;'";
                 $result_of_login_check = $this->db_connection->query($sql);
 

@@ -90,10 +90,10 @@ if (isset($login)) {
             <!-- login form box -->
             <form method="post" action="index.php" name="loginform">
             
-                <input id="user-type" type="hidden" value="1">
+                <input id="user-type" name="user_type" type="hidden" value="1">
 
                 <div class="col-md-12"><br>
-                    <input id="login_input_username" class="login_input form-control" type="text" name="user_name" required placeholder="Email" style="width: 100%;" /><br>
+                    <input id="login_input_username" class="login_input form-control" type="text" name="user_email" required placeholder="Email" style="width: 100%;" /><br>
                 </div>
 
                 <div class="col-md-8">

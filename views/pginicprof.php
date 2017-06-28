@@ -19,8 +19,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     
     <!-- Personal css file -->
-    <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../css/navbar-style.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/navbar-style.css" />
 
 <body>
 <!-- Fixed navbar -->
@@ -53,7 +53,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="../index.php?logout">
+                        <a href="./index.php?logout">
                             <i class="fa fa-sign-in"></i><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
                             Sair
                         </a>

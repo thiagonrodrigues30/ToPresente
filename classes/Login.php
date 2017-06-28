@@ -45,11 +45,11 @@ class Login
     private function dologinWithPostData()
     {
         // check login form contents
-        if (empty($_POST['user_name'])) {
-            $this->errors[] = "Username field was empty.";
+        if (empty($_POST['user_email'])) {
+            $this->errors[] = "Email esta vazio.";
         } elseif (empty($_POST['user_password'])) {
-            $this->errors[] = "Password field was empty.";
-        } elseif (!empty($_POST['user_name']) && !empty($_POST['user_password'])) {
+            $this->errors[] = "Senha esta vazia.";
+        } elseif (!empty($_POST['user_email']) && !empty($_POST['user_password'])) {
 
             // create a database connection, using the constants from config/db.php (which we loaded in index.php)
             $this->db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
@@ -63,13 +63,13 @@ class Login
             if (!$this->db_connection->connect_errno) {
 
                 // escape the POST stuff
-                $user_name = $this->db_connection->real_escape_string($_POST['user_name']);
+                $user_email = $this->db_connection->real_escape_string($_POST['user_email']);
 
                 // database query, getting all the info of the selected user (allows login via email address in the
                 // username field)
-                $sql = "SELECT user_name, user_email, user_password_hash
-                        FROM users
-                        WHERE user_name = '" . $user_name . "' OR user_email = '" . $user_name . "';";
+                $sql = "SELECT *
+                        FROM users WHERE user_name = '" . $user_email . "' OR user_email = '" . $user_email . "';";
+                       // WHERE user_email = " . $user_email . " ;"; //' AND user_type = '" . $_POST['user_type'] . "'  ;'";
                 $result_of_login_check = $this->db_connection->query($sql);
 
                 // if this user exists
@@ -87,14 +87,20 @@ class Login
                         $_SESSION['user_email'] = $result_row->user_email;
                         $_SESSION['user_login_status'] = 1;
 
+                        $_SESSION['user_id'] = $result_row->user_id;
+                        $_SESSION['user_type'] = $result_row->user_type;
+                        $_SESSION['user_inst'] = $result_row->inst_id;
+                        $_SESSION['user_mat'] = $result_row->user_mat;
+
+
                     } else {
-                        $this->errors[] = "Wrong password. Try again.";
+                        $this->errors[] = "Senha errada. Tente novamente.";
                     }
                 } else {
-                    $this->errors[] = "This user does not exist.";
+                    $this->errors[] = "Este usuario não existe. Verifique se o tipo de usuário esta correto.";
                 }
             } else {
-                $this->errors[] = "Database connection problem.";
+                $this->errors[] = "Problemas de conexão com o banco de dados.";
             }
         }
     }
@@ -108,7 +114,7 @@ class Login
         $_SESSION = array();
         session_destroy();
         // return a little feeedback message
-        $this->messages[] = "You have been logged out.";
+        $this->messages[] = "Você está deslogado.";
 
     }
 

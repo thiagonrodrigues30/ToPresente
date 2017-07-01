@@ -83,26 +83,33 @@
             <tr>
                 <th>Matricula</th>
                 <th>Aluno</th>
-                <th><center>12/06</center></th>
-                <th><center>14/06</center></th>
-                <th><center>16/06</center></th>
-                
+                <!-- Inserindo a data das aulas dinamicamente -->
+                <?php foreach($consultarTurma->listaAulas as $aula): ?>
 
+                    <th><center><?php echo date('d/m', strtotime($aula['tempo_inicio'])); ?></center></th>
 
-
-                <th><center>16/06</center></th><th><center>16/06</center></th><th><center>16/06</center></th><th><center>16/06</center></th><th><center>16/06</center></th><th><center>16/06</center></th><th><center>16/06</center></th><th><center>16/06</center></th><th><center>16/06</center></th><th><center>16/06</center></th><th><center>16/06</center></th><th><center>16/06</center></th><th><center>16/06</center></th>
-
-
-
-
-
-
-
-
+                <?php endforeach; ?>
 
             </tr>
             </thead>
             <tbody>
+
+                <!-- Inserindo as presencas e faltas dinamicamente -->
+                <?php foreach($consultarTurma->listaPresencas as $presenca): ?>
+
+                    <tr>
+                        <td><?php echo $presenca['user_mat']; ?></td>
+                        <td><?php echo $presenca['user_name']; ?></td>
+                        <td><center><input type="checkbox" name="Presença" checked disabled></center></td>
+                        <td><center><input type="checkbox" name="Presença" checked disabled></center></td>
+                        <td><center><input type="checkbox" name="Presença" checked disabled></center></td>
+                    </tr>
+
+                <?php endforeach; ?>
+
+
+
+
             <tr>
                 <td>362964</td>
                 <td>Grimberg Cryzan</td>

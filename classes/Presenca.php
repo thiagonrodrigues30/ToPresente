@@ -59,7 +59,7 @@ class Presenca
         // searching for contacts by the name or nickname
         $sql = "SELECT aulas.turma_id, aulas.aula_num, aulas.tempo_inicio, aulas.tempo_fim, turmas.num_aulas
                 FROM aulas, turmas
-                WHERE aulas.aula_id = '" . $codaula . "'     ;";
+                WHERE aulas.aula_id = '" . $codaula . "' AND turmas.turma_id = aulas.turma_id ;";
 
         $query_aula = $this->db_connection->query($sql);
         $this->turma = $query_aula->fetch_object();

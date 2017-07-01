@@ -37,8 +37,8 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-left">
-                    <li>
-                        <a href="paginaPrincipal.php">
+                    <li  class="active">
+                        <a href="#">
                             <i class="fa fa-sign-in"></i><span class="glyphicon glyphicon-home" aria-hidden="true"></span>
                             Início
                         </a>
@@ -46,10 +46,10 @@
                     
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active">
+                    <li>
                         <a href="#">
                             <i class="fa fa-sign-in"></i><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                            Fulano
+                            <?php echo $_SESSION['user_name']; ?>
                         </a>
                     </li>
                     <li>
@@ -81,9 +81,18 @@
         <h2>Turmas</h2>
         <HR width="100%" align="center" class="hr" noshade/>
         </br>
-        <a class="link-turma" href="consultar-turma-prof.php">CK123-Arquitetura de Computadores</a>
-        </br>
-        <a class="link-turma" href="#">CK456-Redes de Computadores</a>
+        
+        <?php if($turmas->numTurmas == 0){ ?>
+
+            <center><p>Você ainda não cadastrou nenhuma turma.</p></center>
+
+        <?php } else { foreach($turmas->listaTurmas as $turma): ?>
+
+            <a class="link-turma" href="consultar-turma-prof.php?id=<?php echo $turma['turma_id'] ?>"><?php echo $turma['turma_cod'] . " - " . $turma['turma_nome']; ?></a>
+            </br>
+
+        <?php endforeach; } ?>
+
     </div>
 </div>
 </body>

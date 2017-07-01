@@ -1,6 +1,7 @@
 <?php
 
-	if(isset($_GET['presencaJson']))
+	//if(isset($_GET['presencaJson']))
+	if(isset($_POST['presencaJson']))
 	{
 		//echo "entrou"; {"id_usuario":2,"codaula":"abc123","date":"2017-06-29 09:00:00"}
 		//http://localhost/topresente/webservice/presenca-webservice.php?presencaJson=[{%22id_usuario%22:2,%22codaula%22:%22abc123%22,%22date%22:%222017-06-29%2009:00:00%22},{%22id_usuario%22:2,%22codaula%22:%22abc456%22,%22date%22:%222017-06-30%2009:00:00%22}]
@@ -13,7 +14,7 @@
 
 		$presenca = new Presenca();
 
-		$presencaJson = json_decode($_GET['presencaJson']);
+		$presencaJson = json_decode($_POST['presencaJson']);
 
 		foreach ($presencaJson as $presencaAtual)
 		{

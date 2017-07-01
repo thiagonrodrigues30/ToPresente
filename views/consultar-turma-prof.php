@@ -21,8 +21,8 @@
 
     
     <!-- Personal css file -->
-    <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../css/navbar-style.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/navbar-style.css" />
 
 
 <body>
@@ -41,22 +41,28 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-left">
                     <li>
-                        <a href="paginaPrincipal.php">
+                        <a href="index.php">
                             <i class="fa fa-sign-in"></i><span class="glyphicon glyphicon-home" aria-hidden="true"></span>
                             Início
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="#">
+                            <i class="fa fa-sign-in"></i><span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                            Consultar Turmaa
                         </a>
                     </li>
                     
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active">
+                    <li>
                         <a href="#">
                             <i class="fa fa-sign-in"></i><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                            Fulano
+                            <?php echo $_SESSION['user_name']; ?>
                         </a>
                     </li>
                     <li>
-                        <a href="../index.php?logout">
+                        <a href="./index.php?logout">
                             <i class="fa fa-sign-in"></i><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
                             Sair
                         </a>
@@ -67,9 +73,9 @@
         </div>
     </div>
 
-<div class="container-fluid" style="margin-top: 50px">
+<div class="container-fluid" style="margin-top: 70px">
     <div  class="col-md-10 col-md-offset-1">
-        <h2>CK123-Arquitetura de Computadores</h2>
+        <h2><?php echo $consultarTurma->turma->turma_cod . " - " . $consultarTurma->turma->turma_nome; ?></h2>
         <HR width="100%" align="center" class="hr" noshade/>
         </br>
         <table>

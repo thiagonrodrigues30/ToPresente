@@ -14,13 +14,13 @@ if (!isset($_SESSION['user_login_status']) OR $_SESSION['user_login_status'] != 
 require_once("config/db.php");
 
 // load the registration class
-require_once("classes/ListarTurmas.php");
+require_once("classes/ConsultarTurma.php");
 
 // create the registration object. when this object is created, it will do all registration stuff automatically
 // so this single line handles the entire registration process.
-$turmas = new ListarTurmas();
+$consultarTurma = new ConsultarTurma();
 
 // show the view
-include("views/pagina-inicial-professor.php");
+include("views/consultar-turma-prof.php");
 
 ?>

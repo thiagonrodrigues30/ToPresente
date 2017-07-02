@@ -113,13 +113,13 @@ class Registration
                 $user_type = $_POST['tipo'];
                 $user_inst_id = $_POST['instituicao'];
                 
-                if (!isset($_POST['login_input_user_mat']))
+                if (!isset($_POST['matricula']))
                 {
                     $user_mat = "";
                 }
                 else
                 {
-                    $user_mat = $this->db_connection->real_escape_string(strip_tags($_POST['login_input_user_mat'], ENT_QUOTES));
+                    $user_mat = $this->db_connection->real_escape_string(strip_tags($_POST['matricula'], ENT_QUOTES));
                 }
                 $user_password = $_POST['user_password_new'];
 

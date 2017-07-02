@@ -75,6 +75,7 @@
 
 <div class="container-fluid" style="margin-top: 70px">
     <div  class="col-md-10 col-md-offset-1">
+        <?php echo $consultarTurma->teste; ?>
         <h2><?php echo $consultarTurma->turma->turma_cod . " - " . $consultarTurma->turma->turma_nome; ?></h2>
         <HR width="100%" align="center" class="hr" noshade/>
         </br>
@@ -100,65 +101,30 @@
                     <tr>
                         <td><?php echo $presenca['user_mat']; ?></td>
                         <td><?php echo $presenca['user_name']; ?></td>
-                        <td><center><input type="checkbox" name="Presença" checked disabled></center></td>
-                        <td><center><input type="checkbox" name="Presença" checked disabled></center></td>
-                        <td><center><input type="checkbox" name="Presença" checked disabled></center></td>
+
+                        <!-- Marcando as presencas e as faltas na tabela -->
+                        <?php
+                            $vetor_presenca = unserialize($presenca['presenca_vetor']);
+
+                            for($i = 0 ; $i < $consultarTurma->numAulas; $i++) { ?>
+                                <td>
+                                    <center>
+                                        <input type="checkbox" disabled <?php if ($vetor_presenca[$i] == 1){echo 'checked';} ?> >
+                                    </center>
+                                </td>
+                            
+
+                            <?php }    
+                        ?>
+
                     </tr>
 
                 <?php endforeach; ?>
 
 
-
-
-            <tr>
-                <td>362964</td>
-                <td>Grimberg Cryzan</td>
-                <td><center><input type="checkbox" name="Presença" checked disabled></center></td>
-                <td><center><input type="checkbox" name="Presença" checked disabled></center></td>
-                <td><center><input type="checkbox" name="Presença" checked disabled></center></td>
-            </tr>
-            <tr>
-                <td>362972</td>
-                <td>Kayron Melo</td>
-                <td><center><input type="checkbox" name="Presença" checked disabled></center></td>
-                <td><center><input type="checkbox" name="Presença" checked disabled></center></td>
-                <td><center><input type="checkbox" name="Presença" disabled></center></td>
-            </tr>
-            <tr>
-                <td>362424</td>
-                <td>Thiago Nóbrega</td>
-                <td><center><input type="checkbox" name="Presença" disabled></center></td>
-                <td><center><input type="checkbox" name="Presença" disabled></center></td>
-                <td><center><input type="checkbox" name="Presença" disabled></center></td>
-            </tr>
-
-            <tr>
-                <td>362424</td>
-                <td>Thiago Nóbrega</td>
-                <td><center><input type="checkbox" name="Presença" disabled></center></td>
-                <td><center><input type="checkbox" name="Presença" disabled></center></td>
-                <td><center><input type="checkbox" name="Presença" disabled></center></td>
-            </tr><tr>
-                <td>362424</td>
-                <td>Thiago Nóbrega</td>
-                <td><center><input type="checkbox" name="Presença" disabled></center></td>
-                <td><center><input type="checkbox" name="Presença" disabled></center></td>
-                <td><center><input type="checkbox" name="Presença" disabled></center></td>
-            </tr><tr>
-                <td>362424</td>
-                <td>Thiago Nóbrega</td>
-                <td><center><input type="checkbox" name="Presença" disabled></center></td>
-                <td><center><input type="checkbox" name="Presença" disabled></center></td>
-                <td><center><input type="checkbox" name="Presença" disabled></center></td>
-            </tr><tr>
-                <td>362424</td>
-                <td>Thiago Nóbrega</td>
-                <td><center><input type="checkbox" name="Presença" disabled></center></td>
-                <td><center><input type="checkbox" name="Presença" disabled></center></td>
-                <td><center><input type="checkbox" name="Presença" disabled></center></td>
-            </tr>
             </tbody>
         </table><br>
+
         <div class="col-md-10 col-md-offset-1">
             <div class="col-md-9">
                 <a class="link-info" href="info-ult-aula.php">Ver informações da ultima aula</a>
@@ -177,28 +143,28 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="myModalLabel">Nova Aula</h4>
                   </div>
-                  <form method="post" action="index.php" name="loginform">
+                  <form method="post" action="consultar-turma-prof.php?id=<?php echo $consultarTurma->turma->turma_id; ?>" name="loginform">
                         <div class="modal-body">
                         
 
                             <div class="form-group"><br>
                                 <label for="data">Data:</label>
-                                <input id="data" class="login_input form-control" type="date" name="user_name" required placeholder="Email" style="width: 100%;" />
+                                <input id="data" class="form-control" type="date" name="data" required style="width: 100%;" />
                             </div>
 
                             <div class="form-group"><br>
                                 <label for="hora-inicio">Hora Início:</label>
-                                <input id="hora-inicio" class="login_input form-control" type="time" name="user_name" required placeholder="Email" style="width: 100%;" />
+                                <input id="hora-inicio" class="form-control" type="time" name="hora_inicio" required style="width: 100%;" />
                             </div>
 
                             <div class="form-group"><br>
                                 <label for="hora-fim">Hora Fim:</label>
-                                <input id="hora-fim" class="login_input form-control" type="time" name="user_name" required placeholder="Email" style="width: 100%;" />
+                                <input id="hora-fim" class="form-control" type="time" name="hora_fim" required style="width: 100%;" />
                             </div>
                         </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                        <input type="submit" class="btn btn-primary"  name="login" value="Criar Aula"/>
+                        <input type="submit" class="btn btn-primary"  name="nova_aula" value="Criar Aula"/>
                       </div>
                   </form>
                 </div>

@@ -16,14 +16,28 @@ class ConsultarTurma {
 
 	public $errors = array();
 
+	public $teste = "";
+
 
 	public function __construct()
 	{
 		if ($this->connectDb())
 		{
-			$this->consultarTurma();
-			$this->consultarAulas();
-			$this->consultarPresencas();
+			// Se uma nova aula esta sendo inserida chama os metodos de inserir
+			if(isset($_POST['nova_aula']))
+			{
+				$this->consultarTurma();
+				$this->novaAula();
+				$this->atualizarTurma();
+				$this->atualizarPresencas();
+			}
+			//Senao so chama os metodos pra mostrar as informaçoes na tela
+			else
+			{
+				$this->consultarTurma();
+				$this->consultarAulas();
+				$this->consultarPresencas();
+			}
 		}
 		else
 		{
@@ -79,6 +93,61 @@ class ConsultarTurma {
         $query_consultar_presencas = $this->db_connection->query($sql);
         $this->listaPresencas = $query_consultar_presencas->fetch_all(MYSQLI_ASSOC);
         $this->numPresencas = $query_consultar_presencas->num_rows;
+	}
+
+	private function novaAula()
+	{
+		// TODO Gerar token hash para ser o id da aula
+		$tokenHash = "abc321";
+
+		/*
+		$this->teste .= 'to so testando';
+		$this->teste .= $_POST['hora_inicio'];
+		$this->teste .= date('H:m:s', strtotime($_POST['hora_inicio']));
+		*/
+
+		$numAula = $this->turma->num_aulas + 1;
+		$tempoInicio = date('y-m-d', strtotime($_POST['data'])) . " " . $_POST['hora_inicio'] . ":00" ;
+		$tempoFim = date('y-m-d', strtotime($_POST['data'])) . " " . $_POST['hora_fim'] . ":00" ;
+
+
+        $sql = "INSERT INTO aulas (aula_id, turma_id, aula_num, tempo_inicio, tempo_fim)
+                VALUES('". $tokenHash ."' , '". $this->turma->turma_id ."' , '". $numAula ."' , '". $tempoInicio ."' , '". $tempoFim ."');";
+        $query_nova_aula = $this->db_connection->query($sql);
+	}
+
+	private function atualizarTurma()
+	{
+		//$this->teste .= $this->turma->num_aulas + 1;
+
+		$numAulas = $this->turma->num_aulas + 1;
+
+		$sql = "UPDATE turmas
+                SET num_aulas = " . $numAulas . "
+                WHERE turma_id = " . $this->turma->turma_id . "   ;";
+
+        $query_update_turma = $this->db_connection->query($sql);
+	}
+
+	private function atualizarPresencas()
+	{
+        $sql = "SELECT * FROM presencas WHERE turma_id = " . $this->turma->turma_id . "   ;";
+        $query_consultar_presencas = $this->db_connection->query($sql);
+        $listaPresencas = $query_consultar_presencas->fetch_all(MYSQLI_ASSOC);
+
+        foreach($listaPresencas as $presenca)
+        {
+        	$vetor_presenca = unserialize($presenca['presenca_vetor']);
+        	$vetor_presenca[] = 0;
+        	$vetor_presenca = serialize($vetor_presenca);
+
+        	$sql = "UPDATE presencas
+                SET presenca_vetor = '" . $vetor_presenca . "'
+                WHERE presenca_id = " . $presenca['presenca_id'] . "   ;";
+
+        	$query_update_presenca = $this->db_connection->query($sql);
+        }
+
 	}
 
 }

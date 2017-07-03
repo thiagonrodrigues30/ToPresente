@@ -13,8 +13,19 @@ class ListarTurmas {
 
 	public function __construct()
 	{
+		
 		if ($this->connectDb())
 		{
+			if(isset($_POST['deletar']))
+			{
+				$this->deletarTurma();
+			}
+			
+			if(isset($_POST['nova_turma']))
+			{
+				$this->novaTurma();
+			}
+
 			$this->listarTurmas();
 		}
 		else
@@ -51,6 +62,32 @@ class ListarTurmas {
         $query_listar_turmas = $this->db_connection->query($sql);
         $this->listaTurmas = $query_listar_turmas->fetch_all(MYSQLI_ASSOC);
         $this->numTurmas = $query_listar_turmas->num_rows;
+	}
+
+	private function novaTurma()
+	{
+
+    $sql = "INSERT INTO turmas (turma_cod, turma_nome, inst_id, user_id, num_aulas)
+            VALUES('". $_POST['cod_turma'] ."' , '". $_POST['turma_nome'] ."' , ". $_SESSION['user_inst'] ." , ". $_SESSION['user_id'] ." , 0 );";
+    $query_nova_turma = $this->db_connection->query($sql);
+
+	}
+
+	private function deletarTurma()
+	{
+
+		$sql = "DELETE FROM presencas
+						WHERE turma_id = " . $_POST['delete_id'] . "   ;";
+    $query_deletar_presencas = $this->db_connection->query($sql);
+
+    $sql = "DELETE FROM aulas
+						WHERE turma_id = " . $_POST['delete_id'] . "   ;";
+    $query_deletar_aulas = $this->db_connection->query($sql);
+
+    $sql = "DELETE FROM turmas
+						WHERE turma_id = " . $_POST['delete_id'] . "   ;";
+    $query_deletar_turma = $this->db_connection->query($sql);
+
 	}
 
 }

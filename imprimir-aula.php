@@ -21,6 +21,6 @@ require_once("classes/InfoAula.php");
 $infoAula = new InfoAula();
 
 // show the view
-include("views/info-ult-aula.php");
+include("views/imprimir-aula.php");
 
 ?>

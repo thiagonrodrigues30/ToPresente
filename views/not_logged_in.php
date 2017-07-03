@@ -1,19 +1,3 @@
-<?php
-// show potential errors / feedback (from login object)
-if (isset($login)) {
-    if ($login->errors) {
-        foreach ($login->errors as $error) {
-            echo $error;
-        }
-    }
-    if ($login->messages) {
-        foreach ($login->messages as $message) {
-            echo $message;
-        }
-    }
-}
-?>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -38,13 +22,11 @@ if (isset($login)) {
 
     
     <!-- Personal css file -->
-    <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" href="css/navbar-style.css" />
-
-
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 
 </head>
-<body>
+<body class="background-login">
 <script type="text/javascript">
 
     
@@ -69,7 +51,7 @@ if (isset($login)) {
 <div class="row">
     <div class="col-md-4 col-md-offset-4">
 
-
+        <div class="col-md-12 login-temp">-</div>
         <div class="col-md-6 login-tab-prof">
             <a href="#" onclick="mudarUsuario(1)">
                 <center>
@@ -88,7 +70,27 @@ if (isset($login)) {
         <div class="col-md-12 login-box" id="login-box">
 
             <!-- login form box -->
-            <form method="post" action="index.php" name="loginform">
+            <form method="post" action="index.php" name="loginform"><br>
+                <center>
+                    <p class="titulo-site">To Presente</p>
+                </center>
+
+                <?php
+                            // show potential errors / feedback (from login object)
+                            if (isset($login)) {
+                                if ($login->errors) {
+                                    foreach ($login->errors as $error) {
+                                        echo '<div class="alert alert-warning" role="alert">'. $error .'</div>';
+                                    }
+                                }
+                                if ($login->messages) {
+                                    foreach ($login->messages as $message) {
+                                        echo '<div class="alert alert-success" role="alert">'. $message .'</div>';
+                                    }
+                                }
+
+                            }
+                        ?>
             
                 <input id="user-type" name="user_type" type="hidden" value="1">
 

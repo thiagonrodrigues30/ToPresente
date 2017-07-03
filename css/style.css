@@ -1,9 +1,9 @@
-/* Agora é so escrever os css marotos */
-/*
-.qualquercoisa {
-	qualquercoisa: blablabla;
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+.background-login {
+    background-color: #B8F1F1;
 }
-*/
+
 .hr{
     color:black;
     background-color: black;
@@ -92,10 +92,13 @@ tbody {
     background-color: #90EE90;
     /*border: 1px solid black;*/
 }
+.login-temp {
+    color: white;
+    margin-top: 150px;
+}
 
 .login-tab-aluno {
     /*border: 1px solid black;*/
-    margin-top: 200px;
     font-size: 16px;
     border-radius: 10px 10px 0px 0px;
     background-color: #7FFFD4;
@@ -103,8 +106,12 @@ tbody {
 
 .login-tab-prof {
     /*border: 1px solid black;*/
-    margin-top: 200px;
     font-size: 16px;
     border-radius: 10px 10px 0px 0px;
     background-color: #90EE90;
+}
+
+.titulo-site {
+    font-size: 60px;
+    font-family: 'Pacifico', cursive;
 }

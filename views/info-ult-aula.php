@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>To Presente</title>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -69,17 +74,20 @@
     <div  class="col-md-10 col-md-offset-1">
 
         <div class="col-xs-6" align="left">
-            <a class="btn btn-success button" href="consultar-turma-prof.php">Voltar</a>
+            <a class="btn btn-success button" href="consultar-turma-prof.php?id=<?php echo $infoAula->turma->turma_id; ?>">Voltar</a>
         </div>
         <div class="col-xs-6" align="right">
-            <a class="btn btn-success button">Imprimir</a>
+            <a target="_blank" class="btn btn-success button" href="imprimir-aula.php?id=<?php echo $infoAula->turma->turma_id; ?>" >Imprimir</a>
         </div>
-        <h2>CK123-Arquitetura de Computadores</h2>
+        <!--h2>CK123-Arquitetura de Computadores</h2-->
         <HR width="100%" align="center" class="hr" noshade/>
-        </br>
-        <h1>CK123-Arquitetura de Computadores</h1>      
-        <h3>Data: 07/04/2017</h3>
-        <h3>Horario: 08:00 às 10:00</h3>
+        <h1><?php echo $infoAula->turma->turma_cod . " - " . $infoAula->turma->turma_nome; ?></h1>      
+        <h3>Data: <?php echo date('d/m/y', strtotime($infoAula->aula->tempo_inicio)); ?></h3>
+        <h3>Horario: <?php echo date('H:i', strtotime($infoAula->aula->tempo_inicio)) . " às " . date('H:i', strtotime($infoAula->aula->tempo_fim)); ?></h3>
+     
+        <center>
+            <img src="<?php echo 'https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl='. $infoAula->aula->aula_id; ?>" alt="">
+        <center>
      </div>
 </div>
 

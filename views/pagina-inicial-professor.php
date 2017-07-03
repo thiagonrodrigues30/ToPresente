@@ -69,12 +69,12 @@
         <div class="row">
            <div class="col-xs-6">
                 <center>
-                <button class="btn btn-success button">+Turma</button>
+                <button type="button" class="btn btn-success button" data-toggle="modal" data-target="#myModal">+Turma</button>
                 </center>
             </div>
             <div class="col-xs-6">
                 <center>
-                <button class="btn btn-danger button">-Turma</button>
+                <button type="button" class="btn btn-danger button" data-toggle="modal" data-target="#myModalDel">-Turma</button>
                 </center>
             </div>
         </div>
@@ -92,6 +92,74 @@
             </br>
 
         <?php endforeach; } ?>
+
+
+        <!-- Modal para criar nova turma -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">   
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Nova Turma</h4>
+                  </div>
+                  <form method="post" action="pagina-inicial-professor.php" name="loginform">
+                        <div class="modal-body">
+                        
+                            <div class="form-group"><br>
+                                <label for="codigo">Codigo da Turma:</label>
+                                <input id="codigo" class="form-control" type="text" name="cod_turma" required style="width: 100%;" />
+                            </div>
+
+                            <div class="form-group"><br>
+                                <label for="nome">Nome da Turma (Disciplina):</label>
+                                <input id="nome" class="form-control" type="text" name="turma_nome" required style="width: 100%;" />
+                            </div>
+
+                        </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                        <input type="submit" class="btn btn-primary"  name="nova_turma" value="Criar Turma"/>
+                      </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+
+
+            <!-- Modal para deletar turma -->
+            <div class="modal fade" id="myModalDel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">   
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Deletar Turmas</h4>
+                  </div>
+                  <form method="post" action="pagina-inicial-professor.php" name="loginform">
+                        <div class="modal-body">
+                            <p>Selecione a turma que deseja deletar:</p>
+
+                            <?php if($turmas->numTurmas == 0){ ?>
+
+                                <center><p>Você ainda não cadastrou nenhuma turma.</p></center>
+
+                            <?php } else { foreach($turmas->listaTurmas as $turma): ?>
+                                <p>
+                                <input type="radio" name="delete_id" value="<?php echo $turma['turma_id']; ?>"> <?php echo $turma['turma_cod'] . " - " . $turma['turma_nome']; ?>
+                                </p>
+                                
+                            <?php endforeach; } ?>
+                        
+
+                        </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                        <input type="submit" class="btn btn-danger"  name="deletar" value="Deletar Turma"/>
+                      </div>
+                  </form>
+                </div>
+              </div>
+            </div>
 
     </div>
 </div>

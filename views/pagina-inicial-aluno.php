@@ -37,8 +37,8 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-left">
-                    <li>
-                        <a href="paginaPrincipal.php">
+                    <li class="active">
+                        <a href="#">
                             <i class="fa fa-sign-in"></i><span class="glyphicon glyphicon-home" aria-hidden="true"></span>
                             Início
                         </a>
@@ -46,10 +46,10 @@
                     
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active">
+                    <li>
                         <a href="#">
                             <i class="fa fa-sign-in"></i><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                            Fulano
+                            <?php echo $_SESSION['user_name']; ?>
                         </a>
                     </li>
                     <li>
@@ -67,8 +67,9 @@
     <div class="container-fluid" style="margin-top: 50px">
         <div class="row">
             <div  class="col-md-10 col-md-offset-1">
-                <center>
-                    <h2>Baixe o app aqui</h2>
+                <center><br><br>
+                    <h2>Baixe o app aqui</h2><br>
+                    <p><a href="../arquivo_trab/arquivo_trab_' . $_GET['trab'] . '.odt" target="_blank" >Download</a></p><br />
                 </center>
             </div>
         </div>

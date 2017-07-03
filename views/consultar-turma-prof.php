@@ -75,7 +75,6 @@
 
 <div class="container-fluid" style="margin-top: 70px">
     <div  class="col-md-10 col-md-offset-1">
-        <?php echo $consultarTurma->teste; ?>
         <h2><?php echo $consultarTurma->turma->turma_cod . " - " . $consultarTurma->turma->turma_nome; ?></h2>
         <HR width="100%" align="center" class="hr" noshade/>
         </br>
@@ -127,7 +126,19 @@
 
         <div class="col-md-10 col-md-offset-1">
             <div class="col-md-9">
-                <a class="link-info" href="info-ult-aula.php">Ver informações da ultima aula</a>
+                <?php 
+
+                    if($consultarTurma->numAulas == 0)
+                    {
+                        $link = "#";
+                    }
+                    else
+                    {
+                        $link = "info-ult-aula.php?id=" . $consultarTurma->turma->turma_id;
+                    }
+
+                ?>
+                <a class="link-info" href="<?php echo $link; ?>">Ver informações da ultima aula</a>
             </div>
             <div class="col-md-3">
                 <center>

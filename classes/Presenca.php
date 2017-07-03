@@ -130,6 +130,7 @@ class Presenca
         else
         {
             $this->errors[] = "Presença fora do horario da aula.";
+            return 1;
         }
 
 

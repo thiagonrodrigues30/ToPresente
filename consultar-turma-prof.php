@@ -16,15 +16,12 @@ require_once("config/db.php");
 // load the registration class
 require_once("classes/ConsultarTurma.php");
 
-// create the registration object. when this object is created, it will do all registration stuff automatically
-// so this single line handles the entire registration process.
 $consultarTurma = new ConsultarTurma();
 
 //Se uma nova aula foi inserida passa para a pagina de informaçoes dessa ultima aula
 
 if(isset($_POST['nova_aula']))
 {
-	//$_POST['turma_id'] = $consultarTurma->turma->turma_id;
 	header("Location: info-ult-aula.php?id=" . $consultarTurma->turma->turma_id);
 }
 else

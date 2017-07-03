@@ -49,9 +49,7 @@ class InfoAula {
 	{
         $sql = "SELECT * FROM turmas WHERE turma_id = " . $_GET['id'] . "   ;";
         $query_consultar_turma = $this->db_connection->query($sql);
-        //$this->listaTurmas = $query_consultar_turma->fetch_all(MYSQLI_ASSOC);
         $this->turma = $query_consultar_turma->fetch_object();
-        //$this->numTurmas = $query_consultar_turma->num_rows;
 	}
 
 	private function consultarAula()

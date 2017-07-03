@@ -69,7 +69,7 @@
             <div  class="col-md-10 col-md-offset-1">
                 <center><br><br>
                     <h2>Baixe o app aqui</h2><br>
-                    <p><a href="../arquivo_trab/arquivo_trab_' . $_GET['trab'] . '.odt" target="_blank" >Download</a></p><br />
+                    <p><a href="download/To-Presente.apk" target="_blank" >Download</a></p><br />
                 </center>
             </div>
         </div>

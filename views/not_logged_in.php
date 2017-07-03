@@ -112,7 +112,7 @@
                     <a href="register.php">Inscreva-se</a>
                 </center>
             </div>
-        </div>
+        </div><br><br><br><br>
 
     </div>
 
